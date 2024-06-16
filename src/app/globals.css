@@ -1,0 +1,42 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/*  */
+.header-animate {
+    animation: slideDown 0.5s ease-in-out forwards;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.alert {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    color: white;
+    z-index: 1000;
+}
+
+.alert-success {
+    background-color: #48bb78; /* green */
+}
+
+.alert-error {
+    background-color: #f56565; /* red */
+}
+
+.alert-close {
+    margin-left: 1rem;
+    cursor: pointer;
+}
