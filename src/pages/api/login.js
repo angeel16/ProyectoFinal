@@ -2,8 +2,11 @@ import { PrismaClient } from '@prisma/client';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken'); // Asegúrate de que jwt esté instalado
+
 const prisma = new PrismaClient();
-const SECRET_KEY = 'tu_clave_secreta';
+const SECRET_KEY = '5f6b7f4626c4f78e0db5d0a9620c1c7e';
 
 export default async function handler(req, res) {
     if (req.method !== 'POST') {
