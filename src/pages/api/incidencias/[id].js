@@ -1,4 +1,3 @@
-// src/pages/api/incidencias/[id].js
 import { getIncidenciaById } from '@/lib/actions';
 
 export default async function handler(req, res) {

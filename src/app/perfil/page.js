@@ -1,5 +1,4 @@
-"use client"; // Asegúrate de que esta línea esté al inicio del archivo
-
+"use client";
 import { useState, useEffect } from 'react';
 
 export default function PerfilPage() {
@@ -11,7 +10,6 @@ export default function PerfilPage() {
 
     useEffect(() => {
         const fetchPerfil = async () => {
-            // Puedes cambiar este perfil por la llamada al API real
             const perfil = {
                 id: '1',
                 name: 'Angel',
@@ -40,7 +38,6 @@ export default function PerfilPage() {
             });
 
             if (!res.ok) {
-                // Añadimos más detalle para la depuración
                 const errorText = await res.text();
                 throw new Error(`Error al guardar los cambios: ${res.status} - ${errorText}`);
             }
@@ -49,7 +46,6 @@ export default function PerfilPage() {
             showNotification('Perfil actualizado con éxito', 'success');
             setPassword('');
         } catch (error) {
-            // Log detallado del error
             console.error('Error en handleSubmit:', error);
             showNotification(`Hubo un error al actualizar el perfil: ${error.message}`, 'error');
         }

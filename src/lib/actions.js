@@ -34,9 +34,6 @@ export async function register(formData) {
 
     return { success: "Registro correcto" }
 }
-
-
-// Convert an object to FormData
 function objectToFormData(obj) {
     const formData = new FormData();
     Object.keys(obj).forEach(key => formData.append(key, obj[key]));
@@ -44,44 +41,13 @@ function objectToFormData(obj) {
 }
 
 // LOGIN credentials
-// export async function login(formData) {
-//     if (!(formData instanceof FormData)) {
-//         formData = objectToFormData(formData);
-//     }
-//     const email = formData.get('email');
-//     const password = formData.get('password');
-
-//     // Comprobamos si el usuario está registrado
-// }export async function login(data) {
-
-// LOGIN credentials
-
-// LOGIN credentials
-// /lib/actions.js
-
 export async function login(formData) {
-
+    if (!(formData instanceof FormData)) {
+        formData = objectToFormData(formData);
+    }
     const email = formData.get('email');
     const password = formData.get('password');
-
-    try {
-        const response = await fetch('/api/auth/login', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email, password }),
-        });
-
-        const data = await response.json();
-        if (!response.ok) {
-            throw new Error(data.error || 'Error al iniciar sesión');
-        }
-
-        return { success: data.message };
-    } catch (error) {
-        return { error: error.message || 'Error desconocido al iniciar sesión' };
-    }
 }
-
 
 
 // LOGIN google
@@ -103,23 +69,7 @@ export async function loginGithub() {
         throw error
     }
 }
-// }
-// export async function loginGitlab() {
-//     try {
-//         await signIn('gitlab', { redirectTo: globalThis.callbackUrl })
-//     } catch (error) {
-//         console.log(error);
-//         throw error
-//     }
-// }
-// export async function loginSpotify() {
-//     try {
-//         await signIn('spotify', { redirectTo: globalThis.callbackUrl })
-//     } catch (error) {
-//         console.log(error);
-//         throw error
-//     }
-// }
+
 
 // LOGOUT
 export async function logout() {
@@ -129,14 +79,6 @@ export async function logout() {
         throw error
     }
 }
-
-// async function getTecnicosIds() {
-//     const proIds = await prisma.tecnico.findMany({
-//         select: { id: true }
-//     })
-//     return proIds.map(p => p.id)
-// }
-
 
 
 
@@ -159,21 +101,6 @@ export async function getUsers() {
     }
 }
 
-// export async function getIncidencia(id) {
-//     try {
-//         const incidencia = await prisma.incidencia.findUnique({
-//             where: { id },
-//             include: {
-//                 tecnicos: true
-//             }
-//         })
-
-//         console.log(incidencia);
-//         return incidencia;
-//     } catch (error) {
-//         return null;
-//     }
-// }
 export async function getIncidenciaById(id) {
     try {
         const incidencia = await prisma.incidencia.findUnique({
@@ -217,7 +144,6 @@ export async function newIncidencia(data) {
     }
 }
 
-// Actualizar una incidencia existente
 export async function editIncidencia(id, data) {
     try {
         const updatedInc = await prisma.incidencia.update({
@@ -234,76 +160,6 @@ export async function editIncidencia(id, data) {
         throw new Error('No se pudo actualizar la incidencia');
     }
 }
-
-
-// export async function newIncidenciaAdmin(formData) {
-//     try {
-//         const idString = formData.get('id');
-//         const id = idString ? parseInt(idString, 10) : null;
-//         const titulo = formData.get('titulo');
-//         const descripcion = formData.get('descripcion');
-//         const estado = formData.get('estado');
-
-//         if (idString && isNaN(id)) {
-//             throw new Error('Invalid id: id must be an integer.');
-//         }
-
-//         const incidenciaData = {
-//             titulo,
-//             descripcion,
-//             estado,
-//         };
-
-//         if (id !== null) {
-//             incidenciaData.id = id;
-//         }
-
-//         // Create the incidencia without tecnicos
-//         const incidencia = await prisma.incidencia.create({
-//             data: incidenciaData,
-//         });
-
-//         console.log(incidencia);
-//         revalidatePath('/');
-//     } catch (error) {
-//         console.error('Error creating incidencia:', error);
-//     }
-//     redirect('/');
-// }
-// export async function editIncidencia(id, data) {
-//     try {
-//         const updatedInc = await prisma.incidencia.update({
-//             where: { id: parseInt(id, 10) }, // Asegúrate de convertir `id` a número
-//             data: {
-//                 descripcion: data.descripcion,
-//                 titulo: data.titulo,
-//                 estado: data.estado, // Asegúrate de incluir `estado`
-//             },
-//         });
-//         return updatedInc;
-//     } catch (error) {
-//         console.error('Error al actualizar la incidencia:', error);
-//         throw new Error('No se pudo actualizar la incidencia');
-//     }
-// }
-// export async function editIncidenciaAdmin(data) {
-//     const { id, titulo, descripcion, estado } = data;
-//     const updatedIncidencia = await prisma.incidencia.update({
-//         where: { id: Number(id) },
-//         data: { titulo, descripcion, estado },
-//     });
-//     return updatedIncidencia;
-// }
-
-// src/lib/actions.js
-
-// src/lib/actions.js
-// src/lib/actions.js
-
-// src/lib/actions.js
-// src/lib/actions.js
-
-// Eliminar una incidencia por ID
 export async function deleteIncidencia(id) {
     try {
         const result = await prisma.incidencia.delete({
@@ -315,122 +171,6 @@ export async function deleteIncidencia(id) {
         throw new Error('Error al eliminar la incidencia');
     }
 }
-
-
-
-
-
-// // PROVEEDORES
-
-// export async function getTecnicos() {
-//     try {
-//         const tecnicos = await prisma.tecnico.findMany()
-//         return tecnicos;
-//     } catch (error) {
-//         // console.log(error);  
-//         return null;
-//     }
-// }
-
-
-
-// export async function getTecnico(id) {
-//     try {
-//         const tecnico = await prisma.tecnico.findUnique({
-//             where: { id },
-//             include: {
-//                 incidencia: true
-//             }
-//         })
-
-//         console.log(tecnico);
-//         return tecnico;
-//     } catch (error) {
-//         return null;
-//     }
-// }
-
-// async function createIncidenciaWithAdmin(titulo, descripcion) {
-//     const newIncidencia = await prisma.incidencia.create({
-//         data: {
-//             titulo,
-//             descripcion,
-//         },
-//     });
-
-//     const newAdmin = await prisma.admin.create({
-//         data: {
-//             incidenciaId: newIncidencia.id,
-//             estado: 'pendiente', // Estado predeterminado
-//             // Otros campos específicos de admin
-//         },
-//     });
-
-//     return { newIncidencia, newAdmin };
-// }
-
-// // Obtener un admin con su incidencia asociada
-// async function getAdminWithIncidencia(adminId) {
-//     const admin = await prisma.admin.findUnique({
-//         where: { id: adminId },
-//         include: { incidencia: true },
-//     });
-
-//     return admin;
-// }
-
-
-
-// export async function editTecnico(formData) {
-//     const id = Number(formData.get('id'))
-//     const nombre = formData.get('nombre')
-
-
-//     try {
-//         const tecnico = await prisma.tecnico.update({
-//             where: { id },
-//             data: { nombre },
-//         })
-//         console.log(tecnico);
-//         revalidatePath('/tecnicos')
-//     } catch (error) {
-//         console.log(error);
-//     }
-//     redirect('/tecnicos');
-// }
-
-
-
-// export async function deleteTecnico(formData) {
-//     try {
-//         const id = Number(formData.get('id'))
-
-//         const tecnico = await prisma.tecnico.delete({
-//             where: {
-//                 id: id,
-//             },
-//         })
-//         console.log(tecnico);
-//         revalidatePath('/tecnicos')
-//     } catch (error) {
-//         console.log(error);
-//     }
-
-//     redirect('/tecnicos');
-// }
-
-// export async function getUsers() {
-//     return await prisma.user.findMany({
-//         select: {
-//             id: true,
-//             name: true,
-//             email: true,
-//             role: true,
-//         },
-//     });
-// }
-
-// Actualizar rol de usuario
 export async function updateUserRole(userId, newRole) {
     return await prisma.user.update({
         where: { id: userId },

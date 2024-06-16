@@ -11,7 +11,6 @@ async function fetchIncidencias() {
     return res.json();
 }
 
-// Función para obtener el estilo de la etiqueta de estado
 const getEstadoStyle = (estado) => {
     switch (estado) {
         case 'PENDIENTE':

@@ -1,4 +1,3 @@
-// pages/api/users/[id]/role.js
 import { updateUserRole } from '@/lib/actions';
 
 export default async function handler(req, res) {

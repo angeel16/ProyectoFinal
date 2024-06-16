@@ -1,4 +1,3 @@
-// src/app/incidencias/newAdmin/page.js
 import Link from 'next/link';
 import Incidencia from '@/components/Incidencia';
 import { getIncidencias } from '@/lib/actions';

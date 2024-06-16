@@ -1,10 +1,9 @@
-// pages/data.js
-"use client"; // Asegúrate de añadir esta línea al principio del archivo
+"use client";
 
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
-import ConfirmationModal from '@/components/ConfirmationModal'; // Ajusta la ruta según sea necesario
-import { getIncidencias, deleteIncidencia } from '@/lib/actions'; // Ajusta la ruta según sea necesario
+import ConfirmationModal from '@/components/ConfirmationModal';
+import { getIncidencias, deleteIncidencia } from '@/lib/actions';
 
 export default function DataPage() {
   const [data, setData] = useState([]);

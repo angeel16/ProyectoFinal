@@ -7,7 +7,7 @@ let userProfile = {
     id: '1',
     name: 'Angel',
     email: 'Angelborrego@gmail.com',
-    password: '123456', // Este valor no debe estar expuesto en un entorno real.
+    password: '123456',
 };
 
 app.put('/api/perfil', (req, res) => {
@@ -16,7 +16,6 @@ app.put('/api/perfil', (req, res) => {
         return res.status(404).send('Perfil no encontrado');
     }
 
-    // Actualizar los datos del perfil
     userProfile = { ...userProfile, name, email };
     if (password) {
         userProfile.password = password;

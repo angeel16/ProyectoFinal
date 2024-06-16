@@ -13,7 +13,7 @@ async function fetchIncidencia(id) {
 }
 
 export default function EditPage({ params }) {
-    const { id } = params; // `params.id` contiene el ID de la incidencia
+    const { id } = params;
     const [incidencia, setIncidencia] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);

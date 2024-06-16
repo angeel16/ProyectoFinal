@@ -1,4 +1,4 @@
-"use client"; // Asegura que este componente se ejecute en el lado del cliente
+"use client";
 
 import Link from 'next/link';
 
@@ -16,7 +16,6 @@ export default function PortadaAdmin() {
                     <div className="absolute inset-0 transform -skew-y-6 bg-gradient-to-r from-green-400 to-blue-500 rounded-lg shadow-xl"></div>
                     <div className="relative bg-white rounded-lg shadow-xl p-8">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            {/* Primera fila */}
                             <div className="flex flex-col items-center">
                                 <Link legacyBehavior href="/incidencias/delete">
                                     <a className="flex flex-col items-center">
@@ -39,7 +38,6 @@ export default function PortadaAdmin() {
                                     </div>
                                 </Link>
                             </div>
-                            {/* Segunda fila */}
                             <div className="flex flex-col items-center">
                                 <Link legacyBehavior href="/dashboard">
                                     <a className="flex flex-col items-center cursor-pointer">

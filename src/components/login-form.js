@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { login } from '@/lib/actions'; // Asegúrate de que esta función esté definida
+import { login } from '@/lib/actions';
 
 function LoginForm() {
     const [resultado, setResultado] = useState('');

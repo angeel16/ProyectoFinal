@@ -1,4 +1,4 @@
-// src/app/incidencias/new/page.js
+
 "use client";
 
 import FormIncidenciaUsuario from "@/components/FormIncidenciaUsuario";

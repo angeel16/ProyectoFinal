@@ -1,4 +1,3 @@
-// components/ConfirmationModal.js
 import { Fragment } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 

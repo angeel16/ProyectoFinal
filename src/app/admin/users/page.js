@@ -1,7 +1,7 @@
-"use client"; // Asegura que este componente se ejecute en el lado del cliente
+"use client";
 
 import { useState, useEffect } from 'react';
-import { ShieldCheckIcon, UserIcon } from '@heroicons/react/outline'; // Importa los iconos
+import { ShieldCheckIcon, UserIcon } from '@heroicons/react/outline';
 
 export default function Users() {
     const [users, setUsers] = useState([]);

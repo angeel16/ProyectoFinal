@@ -1,4 +1,3 @@
-// src/pages/admin/users.js
 import { useEffect, useState } from 'react';
 import { getUsers } from '../../lib/actions';
 
